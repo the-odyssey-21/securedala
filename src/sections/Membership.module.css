@@ -1,0 +1,115 @@
+.section { background: var(--black); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* Card base */
+.card {
+  border: 1px solid;
+  padding: 36px 30px;
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 22px 100%, 0 calc(100% - 22px));
+  transition: transform 0.3s;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.card:hover { transform: translateY(-6px); }
+
+/* Colour variants */
+.student     { border-color: rgba(0, 200, 255, 0.25); background: rgba(0, 30, 60, 0.4); }
+.professional{ border-color: rgba(0, 255, 136, 0.35); background: rgba(0, 20, 12, 0.5); }
+.enthusiast  { border-color: rgba(74, 107, 124, 0.25); background: rgba(10, 22, 40, 0.5); }
+
+/* Featured label */
+.featuredBadge {
+  position: absolute;
+  top: 16px; right: 30px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: var(--cyber-green);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  padding: 3px 10px;
+  clip-path: polygon(0 0, calc(100% - 5px) 0, 100% 5px, 100% 100%, 5px 100%, 0 calc(100% - 5px));
+}
+
+/* Tier badge pill */
+.badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 3px;
+  padding: 5px 14px;
+  display: inline-block;
+  margin-bottom: 20px;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.badge_student      { color: var(--cyber-blue);  border: 1px solid rgba(0, 200, 255, 0.3); background: rgba(0, 200, 255, 0.06); }
+.badge_professional { color: var(--cyber-green); border: 1px solid rgba(0, 255, 136, 0.3); background: rgba(0, 255, 136, 0.06); }
+.badge_enthusiast   { color: var(--gray);        border: 1px solid rgba(74, 107, 124, 0.3); background: rgba(74, 107, 124, 0.06); }
+
+/* Name */
+.name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+/* Perks */
+.perks {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 32px;
+  flex: 1;
+}
+
+.perk {
+  font-size: 15px;
+  color: rgba(232, 244, 253, 0.6);
+  padding-left: 20px;
+  position: relative;
+  line-height: 1.4;
+}
+
+.perk::before { content: '▸'; position: absolute; left: 0; font-size: 12px; }
+
+.student     .perk::before { color: var(--cyber-blue);  }
+.professional .perk::before { color: var(--cyber-green); }
+.enthusiast  .perk::before { color: var(--gray);        }
+
+/* CTA button */
+.cta {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  padding: 14px;
+  text-transform: uppercase;
+  cursor: none;
+  border: none;
+  clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.cta:hover { opacity: 0.8; transform: translateY(-2px); }
+
+.cta_student      { border: 1px solid var(--cyber-blue);  color: var(--cyber-blue);  background: transparent; }
+.cta_professional { background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-green)); color: var(--black); }
+.cta_enthusiast   { border: 1px solid var(--gray);        color: var(--gray);        background: transparent; }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+}

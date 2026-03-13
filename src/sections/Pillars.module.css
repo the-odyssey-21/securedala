@@ -1,0 +1,108 @@
+.section {
+  background: var(--deep-blue);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Card base */
+.card {
+  background: rgba(5, 10, 14, 0.6);
+  border: 1px solid rgba(0, 200, 255, 0.1);
+  padding: 32px 26px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.card:hover { transform: translateY(-4px); }
+
+.cardOdd {
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+
+.cardOdd:hover  { border-color: rgba(0, 255, 136, 0.3); }
+
+.cardEven {
+  clip-path: polygon(18px 0, 100% 0, 100% 100%, 0 100%, 0 18px);
+}
+
+.cardEven:hover { border-color: rgba(0, 200, 255, 0.3); }
+
+/* Glow overlay on hover */
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.cardOdd::before  { background: linear-gradient(135deg, rgba(0, 255, 136, 0.04) 0%, transparent 60%); }
+.cardEven::before { background: linear-gradient(135deg, rgba(0, 200, 255, 0.04) 0%, transparent 60%); }
+.card:hover::before { opacity: 1; }
+
+/* Ghost number */
+.numBg {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--font-display);
+  font-size: 56px;
+  font-weight: 900;
+  opacity: 0.04;
+  color: var(--white);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Icon */
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  margin-bottom: 20px;
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+.iconGreen { border-color: rgba(0, 255, 136, 0.4); background: rgba(0, 255, 136, 0.05); }
+.iconBlue  { border-color: rgba(0, 200, 255, 0.4); background: rgba(0, 200, 255, 0.05); }
+
+.svgGreen { color: var(--cyber-green); }
+.svgBlue  { color: var(--cyber-blue);  }
+
+/* Heading */
+.heading {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.headingGreen { color: var(--cyber-green); }
+.headingBlue  { color: var(--cyber-blue);  }
+
+/* Body text */
+.text {
+  font-size: 15px;
+  color: rgba(232, 244, 253, 0.55);
+  line-height: 1.65;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 540px) {
+  .grid { grid-template-columns: 1fr; }
+}

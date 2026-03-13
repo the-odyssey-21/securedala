@@ -1,0 +1,81 @@
+.section { background: var(--black); }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Card */
+.card {
+  background: rgba(10, 22, 40, 0.6);
+  border: 1px solid rgba(0, 200, 255, 0.08);
+  padding: 32px;
+  display: flex;
+  gap: 22px;
+  clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
+  transition: border-color 0.3s;
+  position: relative;
+}
+
+.card:hover { border-color: rgba(0, 200, 255, 0.2); }
+
+/* Left accent bar */
+.accent {
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+}
+
+.accentGreen { background: linear-gradient(180deg, var(--cyber-green), transparent); }
+.accentBlue  { background: linear-gradient(180deg, var(--cyber-blue),  transparent); }
+
+/* Grassroots featured card */
+.cardFeatured {
+  grid-column: span 2;
+  background: rgba(0, 20, 15, 0.6);
+  border-color: rgba(0, 255, 136, 0.15);
+  align-items: center;
+}
+
+/* Number */
+.num {
+  font-family: var(--font-display);
+  font-size: 40px;
+  font-weight: 900;
+  line-height: 1;
+  flex-shrink: 0;
+  min-width: 56px;
+}
+
+.numGreen { color: var(--cyber-green); }
+.numBlue  { color: var(--cyber-blue);  }
+
+.cardFeatured .num { font-size: 52px; color: var(--cyber-green); }
+
+/* Body */
+.body { display: flex; flex-direction: column; gap: 10px; }
+
+.title {
+  font-family: var(--font-display);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white);
+  text-transform: uppercase;
+}
+
+.titleGreen { color: var(--cyber-green) !important; }
+
+.text {
+  font-size: 15px;
+  color: rgba(232, 244, 253, 0.55);
+  line-height: 1.65;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .grid               { grid-template-columns: 1fr; }
+  .cardFeatured       { grid-column: span 1; align-items: flex-start; }
+  .cardFeatured .num  { font-size: 40px; }
+}

@@ -1,0 +1,105 @@
+.footer {
+  background: var(--deep-blue);
+  border-top: 1px solid rgba(0, 200, 255, 0.12);
+  padding: 60px var(--space-xl) 36px;
+}
+
+/* Top grid */
+.top {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 50px;
+}
+
+/* Logo button */
+.logoBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  background: none;
+  border: none;
+  cursor: none;
+  padding: 0;
+  margin-bottom: 16px;
+}
+
+.logoText {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  background: linear-gradient(135deg, var(--cyber-blue), var(--cyber-green));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.brandText {
+  font-size: 15px;
+  color: rgba(232, 244, 253, 0.45);
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+/* Columns */
+.colTitle {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--cyber-green);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+
+.link {
+  font-size: 15px;
+  color: rgba(232, 244, 253, 0.45);
+  text-decoration: none;
+  transition: color 0.2s;
+  cursor: none;
+}
+
+.link:hover { color: var(--cyber-blue); }
+
+/* Bottom bar */
+.bottom {
+  border-top: 1px solid rgba(0, 200, 255, 0.1);
+  padding-top: 28px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copy {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--gray);
+  letter-spacing: 1px;
+}
+
+.badges { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.badge {
+  font-family: var(--font-display);
+  font-size: 9px;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  clip-path: polygon(0 0, calc(100% - 6px) 0, 100% 6px, 100% 100%, 6px 100%, 0 calc(100% - 6px));
+}
+
+.badgeGreen { color: var(--cyber-green); border: 1px solid rgba(0, 255, 136, 0.25); }
+.badgeBlue  { color: var(--cyber-blue);  border: 1px solid rgba(0, 200, 255, 0.25); }
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .top { grid-template-columns: 1fr 1fr; gap: 36px; }
+}
+
+@media (max-width: 480px) {
+  .top { grid-template-columns: 1fr; }
+}

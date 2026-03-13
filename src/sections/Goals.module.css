@@ -1,0 +1,92 @@
+.section {
+  background:
+    radial-gradient(ellipse 100% 60% at 50% 100%, rgba(0, 50, 30, 0.2) 0%, transparent 60%),
+    var(--deep-blue);
+}
+
+.timeline { position: relative; }
+
+/* Progress bar */
+.bar {
+  height: 2px;
+  background: linear-gradient(90deg, var(--cyber-green), var(--cyber-blue));
+  margin-bottom: 56px;
+  position: relative;
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.3);
+}
+
+.barStart,
+.barEnd {
+  position: absolute;
+  top: -20px;
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.barStart { left: 0;  color: var(--cyber-green); }
+.barEnd   { right: 0; color: var(--cyber-blue); }
+
+/* Cards grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
+}
+
+.card {
+  border-top: 2px solid;
+  padding-top: 24px;
+  position: relative;
+}
+
+.cardGreen { border-color: var(--cyber-green); }
+.cardBlue  { border-color: var(--cyber-blue);  }
+
+/* Dot on the timeline bar */
+.dot {
+  position: absolute;
+  top: -9px; left: 0;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+}
+
+.dotGreen { background: var(--cyber-green); box-shadow: 0 0 10px var(--cyber-green); }
+.dotBlue  { background: var(--cyber-blue);  box-shadow: 0 0 10px var(--cyber-blue);  }
+
+/* Value */
+.value {
+  font-family: var(--font-display);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.valueGreen { color: var(--cyber-green); }
+.valueBlue  { color: var(--cyber-blue);  }
+
+/* Label */
+.label {
+  font-family: var(--font-display);
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+/* Desc */
+.desc {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.55;
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); gap: 32px; }
+}
+
+@media (max-width: 480px) {
+  .grid { grid-template-columns: 1fr; }
+}
